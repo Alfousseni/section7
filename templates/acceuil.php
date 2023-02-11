@@ -202,8 +202,8 @@
                 </div>
               </div>
               <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
+                <h4>Alfousseni coulybaly</h4>
+                <span>Dev JAVA,python,PHP</span>
               </div>
             </div>
           </div>
@@ -220,7 +220,7 @@
                 </div>
               </div>
               <div class="member-info">
-                <h4>Sarah Jhonson</h4>
+                <h4>Sarah messan</h4>
                 <span>Product Manager</span>
               </div>
             </div>
@@ -238,8 +238,8 @@
                 </div>
               </div>
               <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>CTO</span>
+                <h4>MauvTech</h4>
+                <span>Dev JS</span>
               </div>
             </div>
           </div>
@@ -256,8 +256,8 @@
                 </div>
               </div>
               <div class="member-info">
-                <h4>Amanda Jepson</h4>
-                <span>Accountant</span>
+                <h4>SIDIBE Aminata</h4>
+                <span>Dev java,python</span>
               </div>
             </div>
           </div>
@@ -282,13 +282,13 @@
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Location:</h4>
-                <p>A108 Adam Street, New York, NY 535022</p>
+                <p>Yof YF-594, Dakar, SENEGAL</p>
               </div>
 
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>info@example.com</p>
+                <p>coulybaly.alf@gmail.com</p>
               </div>
 
               <div class="phone">
