@@ -80,5 +80,5 @@ function setMember($identifier, $new_values) {
     );
     $update_values[] = $identifier;
     $statement->execute($update_values);
-    return $statement->rowCount() > 0;
+        return $statement->rowCount() > 0;
 }

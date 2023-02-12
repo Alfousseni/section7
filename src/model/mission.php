@@ -36,3 +36,19 @@ function getMissions() {
     }
     return $missions;
 }
+function setMission($identifier, $new_values) {
+    $database = dbConnect();
+    $update_fields = [];
+    $update_values = [];
+    foreach ($new_values as $key => $value) {
+        $update_fields[] = "$key=?";
+        $update_values[] = $value;
+    }
+    $update_fields = implode(', ', $update_fields);
+    $statement = $database->prepare(
+        "UPDATE mission SET $update_fields WHERE id=?"
+    );
+    $update_values[] = $identifier;
+    $statement->execute($update_values);
+    return $statement->rowCount() > 0;
+}
