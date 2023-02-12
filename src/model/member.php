@@ -5,7 +5,7 @@ require_once '../../db/database.php';
 function addMember($new_values) {
     $database = dbConnect();
     $fields = [];
-    $values = [];
+    $values = []; 
     foreach ($new_values as $key => $value) {
         $fields[] = $key;
         $values[] = $value;
