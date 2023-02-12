@@ -5,7 +5,7 @@
 
 body {
   font-family: "Open Sans", sans-serif;
-  background: #f6f9ff;
+  background: #370785;
   color: #444444;
 }
 
@@ -76,13 +76,13 @@ h6 {
 
 .back-to-top i {
   font-size: 24px;
-  color: #fff;
+  color: #2b026c;
   line-height: 0;
 }
 
 .back-to-top:hover {
   background: #6776f4;
-  color: #fff;
+  color: #2b026c;
 }
 
 .back-to-top.active {
@@ -617,7 +617,7 @@ h6 {
   scrollbar-width: thin;
   scrollbar-color: #aab7cf transparent;
   box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
-  background-color: #fff;
+  background-color: #cfc7c7;
 }
 
 @media (max-width: 1199px) {

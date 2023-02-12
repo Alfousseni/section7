@@ -42,7 +42,6 @@
           <li><a class="nav-link scrollto " href="#hero">Acceuil</a></li>
           <li><a class="nav-link scrollto" href="#about">A propos</a></li>
           <li><a class="nav-link scrollto" href="#services">Le camp</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">Langages</a></li>
           <li><a class="nav-link scrollto" href="#team">Superieurs</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
         </ul>
@@ -81,10 +80,6 @@
               </div>
             </div>
           </div>
-
-
-          
-
         </div>
       </div>
     </div>
