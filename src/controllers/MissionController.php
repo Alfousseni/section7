@@ -1,2 +1,2 @@
 <?php 
-require_once '../model/mission.php';
+require_once 'src/model/mission.php';

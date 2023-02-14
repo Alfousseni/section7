@@ -10,24 +10,24 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="templates/assets/img/favicon.png" rel="icon">
+  <link href="templates/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
-  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <link href="templates/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="templates/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="templates/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="templates/assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="templates/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="templates/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="templates/assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="templates/assets/css/style.css" rel="stylesheet">
 
 </head>
 
@@ -38,7 +38,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="">
+        <img src="templates/assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">Admin</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -50,7 +50,7 @@
       <ul class="d-flex align-items-center">  
         <li class="nav-item dropdown pe-3">
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <img src="templates/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
           </a><!-- End Profile Iamge Icon -->
 
@@ -144,7 +144,7 @@
           <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-              <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+              <img src="templates/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
               <h2>Kevin Anderson</h2>
               <h3>Web Designer</h3>
               <div class="social-links mt-2">
@@ -221,7 +221,7 @@
                     <div class="row mb-3">
                       <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                       <div class="col-md-8 col-lg-9">
-                        <img src="assets/img/profile-img.jpg" alt="Profile">
+                        <img src="templates/assets/img/profile-img.jpg" alt="Profile">
                         <div class="pt-2">
                           <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
                           <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
@@ -363,17 +363,17 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/chart.js/chart.umd.js"></script>
-  <script src="assets/vendor/echarts/echarts.min.js"></script>
-  <script src="assets/vendor/quill/quill.min.js"></script>
-  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="templates/assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="templates/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="templates/assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="templates/assets/vendor/echarts/echarts.min.js"></script>
+  <script src="templates/assets/vendor/quill/quill.min.js"></script>
+  <script src="templates/assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="templates/assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="templates/assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="templates/assets/js/main.js"></script>
 
 </body>
 

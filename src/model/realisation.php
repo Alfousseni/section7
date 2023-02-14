@@ -1,35 +1,32 @@
 <?php
-require_once '../../db/database.php';
+require_once 'db/database.php';
 
-function getMembers($id_membre) {
+function getRealisation($id_membre) {
     $database = dbConnect();
     $statement = $database->query(
-        "SELECT m.wording, r.id_mission, m.instruction, DATE_FORMAT(r.date_realisation, '%d/%m/%Y à %Hh%imin%ss'), r.github_project 
+        "SELECT m.wording, r.id_mission, m.instruction, DATE_FORMAT(r.date_realisation, '%d/%m/%Y à %Hh%imin%ss'), r.github_project,devcred
         FROM realisation r,missions m,members me 
         WHERE r.id_membre = me.id AND r.id_membre = $id_membre
         and r.id_mission = m.mission_id  
         ORDER BY date_realisation DESC"
     );
-    $missions = [];
+    $realisations = [];
     while (($row = $statement->fetch())) {
-        $mission = [
-            'mail' => $row['mail'],
-            'french_creation_date' => $row['french_creation_date'],
-            'user_name' => $row['user_name'],
+        $realisation = [
+            'wording' => $row['wording'],
+            'date_realisation' => $row['date_realisation'],
+            'instruction' => $row['instruction'],
             'identifier' => $row['id'],
-            'dev_cred' => $row['dev_cred'],
-            'github' => $row['github'],
-            'country' => $row['country'],
-            'adresse' => $row['Adresse'],
-            'tel' => $row['tel'],
-            'grade' => $row['grade'],
+            'github_project' => $row['github_project'],
+            'devcred' => $row['devcred'],
+           
         ];
-        $missions[] = $mission;
+        $realisations[] = $realisation;
     }
-    return $mission;
+    return $realisations;
 }
 
-function addMission($new_values) {
+function addRealisation($new_values) {
     $database = dbConnect();
     $fields = [];
     $values = [];
