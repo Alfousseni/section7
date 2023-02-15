@@ -9,7 +9,16 @@ function addmembers($email,$user_name,$github,$country,$adress,$tel,$password){
         'country' => $country,
         'Adresse' => $adress,
         'password' => $password,
+        'dates_accession' => $date = date('Y-m-d H:i:s'),  
 
     ];
      addMember($new_values);
+
 }
+
+function updateDev(array $names, int $dev_cred){
+    updateDevForNames($names, $dev_cred);
+}
+
+
+

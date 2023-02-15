@@ -1,8 +1,11 @@
 <?php
 
-require_once('src/controllers/MemberController.php');
-require_once('src/controllers/MissionController.php');
-require_once('src/controllers/RealisationController.php');
+$files = glob('src/controllers/*.php');
+foreach ($files as $file) {
+    require_once $file;
+}
+
+
 
 
 
@@ -19,4 +22,15 @@ if(isset($_POST['submit'])){
    $password=$_POST['password'];
    
    echo addmembers($email,$user_name,$github,$country,$adress,$tel,$password);
+}
+
+if(isset($_POST['connexion'])){
+    $mail=$_POST['mail'];
+    $password=$_POST['password'];
+    if(get_connexion($mail,$password)){
+        header("location:templates/admin/dash.php");
+    }
+    else{
+        echo' non identity email';
+    }
 }

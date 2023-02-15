@@ -16,7 +16,16 @@ function addMember($new_values) {
         "INSERT INTO members ($fields) VALUES ($placeholders)"
     );
     $statement->execute($values);
-    return true; //$database->lastInsertId();
+    $member_id = $database->lastInsertId();
+
+    // Insert the member's credentials into the connection table
+    $mail = $new_values['mail'];
+    $password = $new_values['password'];
+    $connection_statement = $database->prepare(
+        "INSERT INTO connexion (mail,password,id_member) VALUES (?, ?, ?)"
+    );
+    $connection_statement->execute([$mail, $password, $member_id]);
+    return true; 
 }
 
 function getMembers() {
@@ -82,3 +91,18 @@ function setMember($identifier, $new_values) {
     $statement->execute($update_values);
         return $statement->rowCount() > 0;
 }
+
+function updateDevForNames($names, $dev_cred) {
+    $database = dbConnect();
+  
+    // Préparation de la requête de mise à jour de l'attribut 'age' dans la table 'table_name'
+    $sql = "UPDATE members SET dev_cred=dev_cred+:dev_cred WHERE name=:name";
+    $stmt = $database->prepare($sql);
+  
+    // Mise à jour de l'attribut 'age' de chaque nom dans la base de données
+    foreach ($names as $name) {
+      $stmt->execute(array(':dev_cred' => $dev_cred, ':name' => $name));
+    }
+  
+  }
+  
