@@ -97,7 +97,7 @@ function updateDevForNames($names, $dev_cred) {
     $database = dbConnect();
   
     // Préparation de la requête de mise à jour de l'attribut 'age' dans la table 'table_name'
-    $sql = "UPDATE members SET dev_cred=dev_cred+:dev_cred WHERE name=:name";
+    $sql = "UPDATE members SET dev_cred=dev_cred+:dev_cred WHERE user_name=:name";
     $stmt = $database->prepare($sql);
   
     // Mise à jour de l'attribut 'age' de chaque nom dans la base de données

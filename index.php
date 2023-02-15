@@ -48,3 +48,9 @@ if(isset($_POST['ajouterMission'])){
     realisation($lienGit,$idMission);
     
 }
+
+if(isset($_POST['ajouter'])) {
+    $names=$_POST['names'];
+    $dev_cred=$_POST['dev_cred'];
+    updateDev($names,$dev_cred);
+}

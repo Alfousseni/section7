@@ -132,11 +132,11 @@
         <section class="section">
       <div class="row">
         
-        <form action="../../index.php">
+        <form action="../../index.php" method="POST">
         <div class="card">
             <div class="col-md-4">
                     <br>
-                  <input type="number" class="form-control" id="validationDefault02" placeholder="entrer le nombre de DevCred">
+                  <input type="number" class="form-control" name="dev_cred" id="validationDefault02" placeholder="entrer le nombre de DevCred">
             </div>
             <div class="card-body">
               <h5 class="card-title">Cocher ce qui devront avoir la DevCred</h5>
