@@ -1,0 +1,35 @@
+<form method="post" action="update.php">
+  <label><input type="checkbox" name="names[]" value="Alice"> Alice</label><br>
+  <label><input type="checkbox" name="names[]" value="Bob"> Bob</label><br>
+  <label><input type="checkbox" name="names[]" value="Charlie"> Charlie</label><br>
+  <input type="submit" value="Mettre à jour l'âge des noms sélectionnés">
+</form>
+
+<?php
+// Connexion à la base de données
+$host = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "dbname";
+try {
+  $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+} catch (PDOException $e) {
+  die("Erreur de connexion à la base de données : " . $e->getMessage());
+}
+
+// Récupération des noms sélectionnés
+$namesToUpdate = $_POST['names'];
+
+// Préparation de la requête de mise à jour de l'attribut 'age' dans la table 'table_name'
+$sql = "UPDATE table_name SET age=:updatedAge WHERE name=:name";
+$stmt = $pdo->prepare($sql);
+
+// Mise à jour de l'attribut 'age' de chaque nom dans la base de données
+foreach ($namesToUpdate as $name) {
+  $updatedAge = /* Calcul de la nouvelle valeur de l'attribut 'age' */;
+  $stmt->execute(array(':updatedAge' => $updatedAge, ':name' => $name));
+}
+
+// Fermeture de la connexion à la base de données
+$pdo = null;
+?>

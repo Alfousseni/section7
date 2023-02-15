@@ -37,7 +37,7 @@ function addRealisation($new_values) {
     $fields = implode(', ', $fields);
     $placeholders = implode(', ', array_fill(0, count($values), '?'));
     $statement = $database->prepare(
-        "INSERT INTO missions ($fields) VALUES ($placeholders)"
+        "INSERT INTO realisations ($fields) VALUES ($placeholders)"
     );
     $statement->execute($values);
     return true;//$database->lastInsertId();

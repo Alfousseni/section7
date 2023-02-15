@@ -30,7 +30,17 @@ if(isset($_POST['connexion'])){
     if(get_connexion($mail,$password)){
         header("location:templates/admin/dash.php");
     }
+    if(get_connexionAd($mail,$password)){
+        header("location:templates/admin/admindash.php");
+    }
     else{
         echo' non identity email';
     }
+}
+
+if(isset($_POST['ajouterMission'])){
+    $lienGit=$_POST['github'];
+    $idMission=$_POST['id_mission'];
+    realisation($lienGit,$idMission);
+    
 }

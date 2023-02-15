@@ -220,20 +220,21 @@
 
                 <div class="card-body">
                   <h5 class="card-title">Ajouter votre mission</h5>
-                  <form class="row g-3 needs-validation" novalidate>
+                  <form class="row g-3 needs-validation" action="../../index.php" method="POST" novalidate>
                       <div class="col-12">
                         <label for="yourUsername" class="form-label">liens github la mission</label>
                         <div class="input-group has-validation">
-                          <input type="url" placeholder="https://example.com" name="username" class="form-control" id="yourUsername" required>
+                          <input type="url" placeholder="https://example.com" name="github" class="form-control" id="yourUsername" required>
                         </div>
                       </div>
 
                       <div class="col-12">
                         <label for="yourUsername" class="form-label">Numero de la mission</label>
                         <div class="input-group has-validation">
-                          <input type="number" name="username" class="form-control" id="yourUsername" required>
+                          <input type="number" name="id_mission" class="form-control" id="yourUsername" required>
                         </div>
                       </div>
+                      <button type="submit" name="ajouterMission" class="btn btn-primary">Ajouer</button>
                 </form>
                 </div>
               </div>
