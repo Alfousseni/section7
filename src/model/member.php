@@ -36,6 +36,7 @@ function getMembers() {
     $members = [];
     while (($row = $statement->fetch())) {
         $member = [
+            'id' => $row['id'],
             'mail' => $row['mail'],
             'french_creation_date' => $row['french_creation_date'],
             'user_name' => $row['user_name'],

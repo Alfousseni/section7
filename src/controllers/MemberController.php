@@ -20,5 +20,12 @@ function updateDev(array $names, int $dev_cred){
     updateDevForNames($names, $dev_cred);
 }
 
+function get_members(){
+    $members=getMembers();
+
+    $members=serialize($members);
+return $members;
+}
+
 
 

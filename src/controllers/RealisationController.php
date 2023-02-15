@@ -11,3 +11,10 @@ function realisation($lienGit,$idMission){
     addRealisation($new_values);
 
 }
+
+function getAllRealisations(){
+    $membersD=getAllRealisation();
+
+    $membersD=serialize($membersD);
+return $membersD;
+}

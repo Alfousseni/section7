@@ -155,14 +155,16 @@
                 </thead>
                 <tbody>
                     <?php
-                        foreach ($mmbersD as $memberD) {
+                        $membersD=$_GET['membersD'];
+                        $membersD=unserialize(urldecode($membersD));
+                        foreach ($membersD as $memberD) {
                     ?>
                   <tr>
                     <th scope="row"><label><input type="checkbox" name="names[]" value="<?=$memberD['user_name']?>"></label><br></th>
                     <td><?=$memberD['dev_cred']?></td>
                     <td><?=$memberD['user_name']?></td>
                     <td><?=$memberD['id_mission']?></td>
-                    <td><?=$memberD['gitgub_project']?></td>
+                    <td><a href="<?=$memberD['github_project']?>"><?=$memberD['github_project']?></a></td>
                     <td><?=$memberD['date_realisation']?></td>
                   </tr>
                   <?php
@@ -191,41 +193,21 @@
                   </tr>
                 </thead>
                 <tbody>
+                <?php
+                        $members=$_GET['members'];
+                        $members=unserialize(urldecode($members));
+                        foreach ($members as $member) {
+                    ?>
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Brandon Jacob</td>
-                    <td>Designer</td>
-                    <td>28</td>
-                    <td>2016-05-25</td>
+                    <th scope="row"><?=$member['id']?></th>
+                    <td><?=$member['user_name']?></td>
+                    <td><?=$member['grade']?></td>
+                    <td><?=$member['dev_cred']?></td>
+                    <td><?=$member['french_creation_date']?></td>
                   </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Bridie Kessler</td>
-                    <td>Developer</td>
-                    <td>35</td>
-                    <td>2014-12-05</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Ashleigh Langosh</td>
-                    <td>Finance</td>
-                    <td>45</td>
-                    <td>2011-08-12</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">4</th>
-                    <td>Angus Grady</td>
-                    <td>HR</td>
-                    <td>34</td>
-                    <td>2012-06-11</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">5</th>
-                    <td>Raheem Lehner</td>
-                    <td>Dynamic Division Officer</td>
-                    <td>47</td>
-                    <td>2011-04-19</td>
-                  </tr>
+                  <?php
+                        }
+                    ?>  
                 </tbody>
               </table>
               <!-- End Table with stripped rows -->

@@ -31,7 +31,11 @@ if(isset($_POST['connexion'])){
         header("location:templates/admin/dash.php");
     }
     if(get_connexionAd($mail,$password)){
-        header("location:templates/admin/admindash.php");
+        $membersD=getAllRealisations();
+        $members=get_members();
+
+        header('Location: templates/admin/admindash.php?membersD=' . urlencode($membersD) . '&members=' . urlencode($members));
+
     }
     else{
         echo' non identity email';
