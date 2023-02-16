@@ -22,10 +22,16 @@ function updateDev(array $names, int $dev_cred){
 
 function get_members(){
     $members=getMembers();
-
-    $members=serialize($members);
+    //$members=serialize($members);
 return $members;
 }
+
+function get_member($id){
+    $member=getMember($id);
+    //$member=serialize($member);
+return $member;
+}
+
 
 
 

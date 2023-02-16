@@ -15,6 +15,6 @@ function realisation($lienGit,$idMission){
 function getAllRealisations(){
     $membersD=getAllRealisation();
 
-    $membersD=serialize($membersD);
+    //$membersD=serialize($membersD);
 return $membersD;
 }

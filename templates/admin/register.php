@@ -1,4 +1,6 @@
 <?php 
+session_start();
+
 $titlep='login';
 
 ob_start();

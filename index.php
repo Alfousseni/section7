@@ -1,4 +1,5 @@
-<?php
+<?php 
+session_start();
 
 $files = glob('src/controllers/*.php');
 foreach ($files as $file) {
@@ -8,10 +9,7 @@ foreach ($files as $file) {
 
 
 
-
 if(isset($_POST['submit'])){
-
-    echo 'cououo';
 
    echo $email=$_POST['email'];
    $user_name=$_POST['username'];
@@ -24,33 +22,66 @@ if(isset($_POST['submit'])){
    echo addmembers($email,$user_name,$github,$country,$adress,$tel,$password);
 }
 
-if(isset($_POST['connexion'])){
+elseif(isset($_POST['connexion'])){
     $mail=$_POST['mail'];
     $password=$_POST['password'];
-    if(get_connexion($mail,$password)){
-        header("location:templates/admin/dash.php");
+    if(get_connexion($mail,$password) != -1){
+        $_SESSION['id'] = get_connexion($mail,$password);
+        include_once 'templates/admin/dash.php';
     }
-    if(get_connexionAd($mail,$password)){
+    elseif(get_connexionAd($mail,$password)){
         $membersD=getAllRealisations();
         $members=get_members();
+        $_SESSION['members'] = $members;
+        $_SESSION['membersD'] = $membersD;
+        $_SESSION['id'] = 0;
+        include_once 'templates/admin/admindash.php';
 
-        header('Location: templates/admin/admindash.php?membersD=' . urlencode($membersD) . '&members=' . urlencode($members));
+        //header('Location:templates/admin/admindash.php?membersD=' . urlencode($membersD) . '&members=' . urlencode($members));
 
     }
     else{
-        echo' non identity email';
+        echo $mail .$password;
+        echo get_connexion($mail,$password) .get_connexionAd($mail,$password);
+        echo'identity email';
     }
 }
 
-if(isset($_POST['ajouterMission'])){
+elseif(isset($_POST['ajouterMission'])){
     $lienGit=$_POST['github'];
     $idMission=$_POST['id_mission'];
     realisation($lienGit,$idMission);
     
 }
 
-if(isset($_POST['ajouter'])) {
+elseif(isset($_POST['ajouter'])) {
     $names=$_POST['names'];
     $dev_cred=$_POST['dev_cred'];
     updateDev($names,$dev_cred);
+    $membersD=getAllRealisations();
+    $members=get_members();
+    $_SESSION['members'] = $members;
+    $_SESSION['membersD'] = $membersD;
+    include_once 'templates/admin/admindash.php';
+}
+
+elseif(isset($_POST['ajouterM'])){
+$wording=$_POST['wording'];
+$instruction=$_POST['instruction'];
+$devcred=$_POST['devcred'];
+
+    add_missions($wording,$instruction,$devcred);
+    $membersD=getAllRealisations();
+    $members=get_members();
+    $_SESSION['members'] = $members;
+    $_SESSION['membersD'] = $membersD;
+    include_once 'templates/admin/admindash.php';
+}
+
+elseif (isset($_GET['action']) && $_GET['action'] !== ''){
+    session_destroy();
+}
+else{
+    require_once 'templates/acceuil.php';
+   
 }

@@ -1,6 +1,7 @@
+<?php 
 
-<?php $title='Acceuil';?>
-<?php ob_start(); ?>
+ $title='Acceuil';
+ ob_start(); ?>
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center justify-content-center">
     <div class="container" data-aos="fade-up">
