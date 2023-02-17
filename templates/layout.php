@@ -30,7 +30,7 @@
 
 </head>
 
-<body>
+<body style="background-color: #3d0050;">
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top header-inner-pages">
