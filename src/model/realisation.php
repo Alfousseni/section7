@@ -4,7 +4,7 @@ require_once 'db/database.php';
 function getRealisation($id_membre) {
     $database = dbConnect();
     $statement = $database->query(
-        "SELECT m.wording, r.id_mission, m.instruction, DATE_FORMAT(r.date_realisation, '%d/%m/%Y à %Hh%imin%ss'), r.github_project,m.devcred
+        "SELECT m.wording, r.id_mission, m.instruction,me.Recompenses, DATE_FORMAT(r.date_realisation, '%d/%m/%Y à %Hh%imin%ss') as date_realisation, r.github_project,m.devcred
         FROM realisations r,missions m,members me 
         WHERE r.id_membre = me.id AND r.id_membre = $id_membre
         and r.id_mission = m.mission_id  
@@ -19,6 +19,8 @@ function getRealisation($id_membre) {
             'identifier' => $row['id_mission'],
             'github_project' => $row['github_project'],
             'devcred' => $row['devcred'],
+            'Recompenses' => $row['Recompenses'],
+
            
         ];
         $realisations[] = $realisation;
@@ -46,11 +48,11 @@ function addRealisation($new_values) {
 function getAllRealisation() {
     $database = dbConnect();
     $statement = $database->query(
-        "SELECT r.id_realisation, m.user_name, m.dev_cred, github_project, r.id_mission, DATE_FORMAT(r.date_realisation, '%d/%m/%Y à %Hh%imin%ss') AS date_realisation 
+        "SELECT r.id_realisation, m.user_name, m.dev_cred, m.Recompenses,github_project, r.id_mission, DATE_FORMAT(r.date_realisation, '%d/%m/%Y à %Hh%imin%ss') AS date_realisation 
         FROM members m, realisations r
         WHERE r.id_membre = m.id 
         GROUP BY r.id_mission, date_realisation
-        ORDER BY r.id_mission"
+        ORDER BY r.id_mission DESC"
 
     );
     $realisations = [];
@@ -61,6 +63,7 @@ function getAllRealisation() {
             'dev_cred' => $row['dev_cred'],
             'github_project' => $row['github_project'],
             'dev_cred' => $row['dev_cred'],
+            'Recompenses' => $row['Recompenses'],
             'date_realisation' => $row['date_realisation'],
         ];
         $realisations[] = $realisation;

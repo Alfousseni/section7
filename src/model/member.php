@@ -31,7 +31,7 @@ function addMember($new_values) {
 function getMembers() {
     $database = dbConnect();
     $statement = $database->query(
-        "SELECT id, mail, user_name,dev_cred,grade,github,tel,country,Adresse, DATE_FORMAT(dates_accession, '%d/%m/%Y à %Hh%imin%ss') AS french_creation_date FROM members ORDER BY dev_cred DESC"
+        "SELECT id,Recompenses, mail, user_name,dev_cred,grade,github,tel,country,Adresse, DATE_FORMAT(dates_accession, '%d/%m/%Y à %Hh%imin%ss') AS french_creation_date FROM members ORDER BY dev_cred DESC"
     );
     $members = [];
     while (($row = $statement->fetch())) {
@@ -47,6 +47,7 @@ function getMembers() {
             'adresse' => $row['Adresse'],
             'tel' => $row['tel'],
             'grade' => $row['grade'],
+            'Recompenses' => $row['Recompenses'],
         ];
         $members[] = $member;
     }
@@ -142,6 +143,51 @@ function getMembersCount() {
         return 0;
     }
 }
+
+function updateGrades() {
+    $database = dbConnect();
+    
+    $grades = array(
+        array('grade' => 'Soldat', 'dev_cred_min' => 000, 'dev_cred_max' => 199),
+        array('grade' => 'Caporal', 'dev_cred_min' => 200, 'dev_cred_max' => 299),
+        array('grade' => 'Caporal Chef', 'dev_cred_min' => 300, 'dev_cred_max' => 399),
+        array('grade' => 'Sergent', 'dev_cred_min' => 400, 'dev_cred_max' => 499),
+        array('grade' => 'Sergent Chef', 'dev_cred_min' => 500, 'dev_cred_max' => 599),
+        array('grade' => 'Adjudant', 'dev_cred_min' => 600, 'dev_cred_max' => 699),
+        array('grade' => 'Adjudant Chef', 'dev_cred_min' => 700, 'dev_cred_max' => 799),
+        array('grade' => 'Major', 'dev_cred_min' => 800, 'dev_cred_max' => 899),
+        array('grade' => 'Sous Lieutenant', 'dev_cred_min' => 900, 'dev_cred_max' => 999),
+        array('grade' => 'Capitaine', 'dev_cred_min' => 1000, 'dev_cred_max' => 1099),
+        array('grade' => 'Commandant', 'dev_cred_min' => 1100, 'dev_cred_max' => 1199),
+        array('grade' => 'Lieutenant Colonel', 'dev_cred_min' => 1200, 'dev_cred_max' => 1299),
+        array('grade' => 'Colonel', 'dev_cred_min' => 1300, 'dev_cred_max' => 1399),
+        array('grade' => 'Général de Brigade', 'dev_cred_min' => 1400, 'dev_cred_max' => 1499),
+        array('grade' => 'Général de Division', 'dev_cred_min' => 1500, 'dev_cred_max' => 1599),
+        array('grade' => 'Chef d\'Etat Major', 'dev_cred_min' => 1600, 'dev_cred_max' => PHP_INT_MAX),
+    );
+
+    foreach ($grades as $grade) {
+        $sql = "UPDATE members SET grade=:grade WHERE dev_cred >= :dev_cred_min AND dev_cred <= :dev_cred_max";
+        $stmt = $database->prepare($sql);
+        $stmt->execute(array(':grade' => $grade['grade'], ':dev_cred_min' => $grade['dev_cred_min'], ':dev_cred_max' => $grade['dev_cred_max']));
+    }
+}
+
+function updateRewardForName($names, $recompense) {
+    $database = dbConnect();
+  
+    // Préparation de la requête de mise à jour de l'attribut 'reward' dans la table 'members'
+    $sql = "UPDATE members SET Recompenses=CONCAT(IFNULL(Recompenses,''), ',', :recompense) WHERE user_name=:name";
+    $stmt = $database->prepare($sql);
+  
+    // Mise à jour de l'attribut 'reward' pour le nom spécifié
+    foreach ($names as $name) {
+        $stmt->execute(array(':recompense' => $recompense, ':name' => $name));
+      }
+    
+}
+
+
 
 
   

@@ -77,41 +77,11 @@
        
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <img src="templates/admin/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
           </a><!-- End Profile Iamge Icon -->
 
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            <li class="dropdown-header">
-              <h6>Kevin Anderson</h6>
-              <span>Web Designer</span>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-person"></i>
-                <span>My Profile</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
-              </a>
-            </li>
+         
 
           </ul><!-- End Profile Dropdown Items -->
 
@@ -131,14 +101,6 @@
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
-
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="profile.php">
-          <i class="bi bi-person"></i>
-          <span>Profile</span>
-        </a>
-      </li><!-- End Profile Page Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="index.php?action=true">
           <i class="bi bi-person"></i>
@@ -179,12 +141,11 @@
    
 
     <section class="section dashboard">
-       
       <div class="row">
 
         <!-- Left side columns -->
         <section class="section">
-      <div class="row">
+          <div class="row">
         
         <form action="index.php" method="POST">
         <div class="card">
@@ -231,6 +192,51 @@
             </div>
           </div>
           </form>
+          <form action="index.php" method="POST">
+        <div class="card">
+            <div class="col-md-4">
+                    <br>
+                  <input type="texte" class="form-control" name="recompense" id="validationDefault02" placeholder="entrer la recompense">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Cocher ce qui devront avoir la recompense</h5>
+
+              <!-- Dark Table -->
+              <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">Cocher</th>
+                    <th scope="col">Recompense</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Numero de la mission</th>
+                    <th scope="col">Liens Github</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        $membersD=$_SESSION['membersD'];
+                        //$membersD=unserialize(urldecode($membersD));
+                        foreach ($membersD as $memberD) {
+                    ?>
+                  <tr>
+                    <th scope="row"><label><input type="checkbox" name="names[]" value="<?=$memberD['user_name']?>"></label><br></th>
+                    <td><?=$memberD['Recompenses']?></td>
+                    <td><?=$memberD['user_name']?></td>
+                    <td><?=$memberD['id_mission']?></td>
+                    <td><a href="<?=$memberD['github_project']?>"><?=$memberD['github_project']?></a></td>
+                    
+                  </tr>
+                  <?php
+                        }
+                    ?>                  
+                </tbody>
+              </table>
+              <button type="submit" name="ajouterR" class="btn btn-primary">Ajouer</button>
+              <!-- End Dark Table -->
+            </div>
+          </div>
+          </form>
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Listes des Membres</h5>
@@ -267,9 +273,46 @@
              
             </div>
           </div>
-          
-        
+          <div class="col-12">
+              <div class="card recent-sales overflow-auto">
+
+
+                <div class="card-body">
+                  <h5 class="card-title">Missions Effectuer</h5>
+
+                  <table class="table table-borderless datatable">
+                    <thead>
+                      <tr>
+                        <th scope="col">Missions num</th>
+                        <th scope="col">Titre</th>
+                        <th scope="col">Instruction</th>
+                        <th scope="col">DevCred</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                        $missions=$_SESSION['missions'];
+                        //$membersD=unserialize(urldecode($membersD));
+                        foreach ($missions as $mission) {
+                    ?>
+                      <tr>
+                        <td><?=$mission['mission_id']?></td>
+                        <td><?=$mission['wording']?></td>
+                        <td><?=$mission['instruction']?></td>
+                        <td><?=$mission['devcred']?></td>
+                      </tr>
+                      <?php
+                        }
+                    ?>
+                    </tbody>
+                  </table>
+
+                </div>
+
+              </div>
+            </div><!-- End Recent Sales -->
       </div>
+      
     </section>
       </div>
     </section>

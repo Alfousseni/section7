@@ -7,6 +7,7 @@ foreach ($files as $file) {
 $_SESSION['count']=get_MembersCount();
 $_SESSION['members'] = get_members();
 $_SESSION['missions'] = get_missions();
+update_Grades();
 
 if(isset($_POST['submit'])){
 
@@ -58,10 +59,16 @@ elseif(isset($_POST['ajouter'])) {
     $names=$_POST['names'];
     $dev_cred=$_POST['dev_cred'];
     updateDev($names,$dev_cred);
-    $membersD=getAllRealisations();
-    $members=get_members();
-    $_SESSION['members'] = $members;
-    $_SESSION['membersD'] = $membersD;
+    $_SESSION['members'] = get_members();
+    $_SESSION['membersD'] = getAllRealisations();
+    include_once 'templates/admin/admindash.php';
+}
+elseif(isset($_POST['ajouterR'])) {
+    $names=$_POST['names'];
+    $recompense=$_POST['recompense'];
+    updateReward_ForName($names,$recompense);
+    $_SESSION['members'] = get_members();
+    $_SESSION['membersD'] = getAllRealisations();
     include_once 'templates/admin/admindash.php';
 }
 

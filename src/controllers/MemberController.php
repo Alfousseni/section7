@@ -39,6 +39,14 @@ function get_MembersCount(){
     return getMembersCount();
 } 
 
+function update_Grades(){
+    return updateGrades();
+}
+
+function updateReward_ForName(array $names,$realisation){
+    updateRewardForName($names, $realisation);
+}
+
 
 
 

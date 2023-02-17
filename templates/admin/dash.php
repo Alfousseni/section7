@@ -189,7 +189,7 @@
 
                 <div class="card-body">
                   <h5 class="card-title">Ajouter votre mission</h5>
-                  <form class="row g-3 needs-validation" action="../../index.php" method="POST" novalidate>
+                  <form class="row g-3 needs-validation" action="index.php" method="POST" novalidate>
                       <div class="col-12">
                         <label for="yourUsername" class="form-label">liens github la mission</label>
                         <div class="input-group has-validation">
@@ -253,12 +253,25 @@
                   <div class="activite-label"><?=$mission['mission_id']?></div>
                   <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
                   <div class="activity-content">
-                    <?=$mission['wording']?>
+                    <?=$mission['instruction']?>
                   </div>
                 </div><!-- End activity item-->
                 <?php
                         }
                     ?>  
+              </div>
+
+            </div>
+          </div><!-- End Recent Activity -->
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Tes recompenses</h5>
+
+              <div class="activity">
+              <div class="activity-item d-flex">
+                  <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>    
+                  <div class="activite-label"><?=$realisations[0]['Recompenses']?></div>
+                </div><!-- End activity item--> 
               </div>
 
             </div>

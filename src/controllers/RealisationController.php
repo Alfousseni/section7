@@ -3,9 +3,9 @@ require_once 'src/model/realisation.php';
 
 function realisation($lienGit,$idMission){
     $new_values=[
-        'id_membre' => 2,
+        'id_membre' => $_SESSION['id'],
         'id_mission' => $idMission,     
-        'date_realisation' => $date = date('Y-m-d H:i:s'),
+        'date_realisation' => date('Y-m-d H:i:s'),
         'github_project' => $lienGit,
     ];
     addRealisation($new_values);
