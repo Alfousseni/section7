@@ -57,7 +57,7 @@
 
         <div class="row">
           <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
-            <img src="templates/assets/img/about.jpg" class="img-fluid" alt="">
+            <img src="templates/assets/img/section7.png" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
             <h3>C'est quoi la section 7?</h3>
@@ -126,14 +126,14 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>communauté</h2>
+          <h2>REJOINS LE SERVERS DISCORD ET INSCRIT TOI AFIN DE SUIVRE LES ACTIVITES</h2>
         </div>
 
         <div class="row">
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
               <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4><a href="">Discord</a></h4>
+              <h4><a href="https://discord.gg/section7">Discord</a></h4>
               <p>Afin de rejoindre la communauté, integre le serveur discord</p>
             </div>
           </div>
@@ -173,7 +173,7 @@
         <div class="text-center">
           <h3>Passe a l'action</h3>
           <p> Vous cherchez à vous connecter avec d'autres développeurs passionnés et à développer vos compétences en informatique?</p>
-          <a class="cta-btn" href="#">Rejoignez la communauté de la section 7</a>
+          <a class="cta-btn" href="https://discord.gg/section7">Rejoignez la communauté de la section 7</a>
         </div>
 
       </div>

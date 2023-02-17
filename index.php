@@ -11,21 +11,24 @@ update_Grades();
 
 if(isset($_POST['submit'])){
 
-   echo $email=$_POST['email'];
+   $email=$_POST['email'];
    $user_name=$_POST['username'];
    $github=$_POST['github'];
    $country=$_POST['country'];
    $adress=$_POST['adress'];
    $tel=$_POST['tel'];
    $password=$_POST['password'];
-   
-   echo addmembers($email,$user_name,$github,$country,$adress,$tel,$password);
+   addmembers($email,$user_name,$github,$country,$adress,$tel,$password);
+   include_once 'templates/admin/login.php';
+
+
 }
 
 elseif(isset($_POST['connexion'])){
     $mail=$_POST['mail'];
     $password=$_POST['password'];
     if(get_connexion($mail,$password) != -1){
+        $_SESSION['logged_in']=true;
         $_SESSION['mail'] = $mail;
         $_SESSION['id'] = get_connexion($mail,$password);
         $_SESSION['devcred']=get_DevCredById($_SESSION['id']);
@@ -33,6 +36,7 @@ elseif(isset($_POST['connexion'])){
         include_once 'templates/admin/dash.php';
     }
     elseif(get_connexionAd($mail,$password)){
+        $_SESSION['logged_in']=true;
         $membersD=getAllRealisations();
         //$members=get_members();
         $_SESSION['membersD'] = $membersD;
@@ -42,9 +46,7 @@ elseif(isset($_POST['connexion'])){
 
     }
     else{
-        echo $mail .$password;
-        echo get_connexion($mail,$password) .get_connexionAd($mail,$password);
-        echo'identity email';
+        header("location: templates/admin/register.php");
     }
 }
 
@@ -87,6 +89,8 @@ $devcred=$_POST['devcred'];
 
 elseif (isset($_GET['action']) && $_GET['action'] !== ''){
     session_destroy();
+    require_once 'templates/acceuil.php';
+
 }
 else{
     require_once 'templates/acceuil.php';

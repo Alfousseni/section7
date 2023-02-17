@@ -1,3 +1,6 @@
+<?php
+if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,8 +14,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="templates/admin/assets/img/favicon.png" rel="icon">
-  <link href="templates/admin/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="templates/admin/assets/img/section7.png" rel="icon">
+  <link href="templates/admin/assets/img/section7.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -354,3 +357,9 @@
 </body>
 
 </html>
+<?php
+}
+else{
+  include_once 'templates/admin/login.php';
+}
+?>
