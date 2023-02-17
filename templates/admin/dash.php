@@ -47,43 +47,11 @@
        
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+            <img src="templates/admin/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2"><?=$_SESSION['mail']?></span>
           </a><!-- End Profile Iamge Icon -->
 
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            <li class="dropdown-header">
-              <h6>Kevin Anderson</h6>
-              <span>Web Designer</span>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-person"></i>
-                <span>My Profile</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
-              </a>
-            </li>
-
-          </ul><!-- End Profile Dropdown Items -->
+          
 
       </ul>
     </nav><!-- End Icons Navigation -->
@@ -101,14 +69,6 @@
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
-
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="profile.php">
-          <i class="bi bi-person"></i>
-          <span>Profile</span>
-        </a>
-      </li><!-- End Profile Page Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="index.php?action=true">
           <i class="bi bi-person"></i>
@@ -151,7 +111,7 @@
                       <i class="bi bi-cart"></i>
                     </div>
                     <div class="ps-3">
-                      <h6><?php echo $_SESSION['id'];?></h6>
+                      <h6><?= $_SESSION['devcred'];?> DC</h6>
                     </div>
                   </div>
                 </div>
@@ -172,7 +132,7 @@
                       <i class="bi bi-people"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>1244</h6>
+                      <h6><?= $_SESSION['count']?></h6>
                     </div>
                   </div>
 
@@ -200,17 +160,19 @@
                       </tr>
                     </thead>
                     <tbody>
+                    <?php
+                        $realisations=$_SESSION['realisation'];
+                        //$membersD=unserialize(urldecode($membersD));
+                        foreach ($realisations as $realisation) {
+                    ?>
                       <tr>
-                        <td>mission 1</td>
-                        <td><a href="#" class="text-primary">Instruction de la mission</a></td>
-                        <td>25DC</td>
+                        <td><?=$realisation['identifier']?></td>
+                        <td><?=$realisation['instruction']?></td>
+                        <td><?=$realisation['devcred']?></td>
                       </tr>
-                      <tr>
-                        <td>Mission 2</td>
-                        <td><a href="#" class="text-primary">Instruction de la mission</a></td>
-                        <td>25DC</td>
-                      </tr>
-                      
+                      <?php
+                        }
+                    ?>
                     </tbody>
                   </table>
 
@@ -259,54 +221,44 @@
               <h5 class="card-title">Classement</h5>
 
               <div class="activity">
-
+              <?php
+                        $members=$_SESSION["members"];
+                        foreach ($members as $member) {
+                    ?>
               <div class="activity-item d-flex">
-                  <div class="activite-label">GRADE</div>
+                  <div class="activite-label"><?=$member['grade']?></div>
                   <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
                   <div class="activity-content">
-                    Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
+                    <?=$member['user_name']?>
                   </div>
                 </div><!-- End activity item-->
-                <div class="activity-item d-flex">
-                  <div class="activite-label"></div>
-                  <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
-                  <div class="activity-content">
-                    Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
-                  </div>
-                </div><!-- End activity item-->
+                <?php
+                        }
+                    ?>  
+              </div>
 
-                <div class="activity-item d-flex">
-                  <div class="activite-label"></div>
+            </div>
+          </div><!-- End Recent Activity -->
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Missions</h5>
+
+              <div class="activity">
+              <?php
+                        $missions=$_SESSION["missions"];
+                        foreach ($missions as $mission) {
+                    ?>
+              <div class="activity-item d-flex">
+                  <div class="activite-label"><?=$mission['mission_id']?></div>
                   <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
                   <div class="activity-content">
-                    Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
+                    <?=$mission['wording']?>
                   </div>
                 </div><!-- End activity item-->
-
-                <div class="activity-item d-flex">
-                  <div class="activite-label"></div>
-                  <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
-                  <div class="activity-content">
-                    Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
-                  </div>
-                </div><!-- End activity item-->
-
-                <div class="activity-item d-flex">
-                  <div class="activite-label"></div>
-                  <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
-                  <div class="activity-content">
-                    Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
-                  </div>
-                </div><!-- End activity item-->
-
-                <div class="activity-item d-flex">
-                  <div class="activite-label"></div>
-                  <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
-                  <div class="activity-content">
-                    Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
-                  </div>
-                </div><!-- End activity item-->
-
+                <?php
+                        }
+                    ?>  
               </div>
 
             </div>

@@ -31,7 +31,7 @@ function addMember($new_values) {
 function getMembers() {
     $database = dbConnect();
     $statement = $database->query(
-        "SELECT id, mail, user_name,dev_cred,grade,github,tel,country,Adresse, DATE_FORMAT(dates_accession, '%d/%m/%Y à %Hh%imin%ss') AS french_creation_date FROM members ORDER BY dates_accession DESC"
+        "SELECT id, mail, user_name,dev_cred,grade,github,tel,country,Adresse, DATE_FORMAT(dates_accession, '%d/%m/%Y à %Hh%imin%ss') AS french_creation_date FROM members ORDER BY dev_cred DESC"
     );
     $members = [];
     while (($row = $statement->fetch())) {
@@ -106,4 +106,42 @@ function updateDevForNames($names, $dev_cred) {
     }
   
   }
+
+  function getDevCredById($member_id) {
+    $database = dbConnect();
+  
+    // Préparation de la requête de sélection de l'attribut 'dev_cred' pour le membre ayant l'ID donné
+    $sql = "SELECT dev_cred FROM members WHERE id=:member_id";
+    $stmt = $database->prepare($sql);
+    $stmt->execute(array(':member_id' => $member_id));
+  
+    // Récupération de la valeur de l'attribut 'dev_cred' pour le membre ayant l'ID donné
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+  
+    if ($result !== false) {
+        return $result['dev_cred'];
+    } else {
+        return null;
+    }
+}
+
+function getMembersCount() {
+    $database = dbConnect();
+  
+    // Préparation de la requête de comptage des membres dans la table 'members'
+    $sql = "SELECT COUNT(*) FROM members";
+    $stmt = $database->prepare($sql);
+    $stmt->execute();
+  
+    // Récupération du résultat du comptage
+    $result = $stmt->fetch(PDO::FETCH_NUM);
+  
+    if ($result !== false) {
+        return $result[0];
+    } else {
+        return 0;
+    }
+}
+
+
   

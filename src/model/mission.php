@@ -22,13 +22,13 @@ function addMission($new_values) {
 function getMissions() {
     $database = dbConnect();
     $statement = $database->query(
-        "SELECT mission_id,wording,instruction, DATE_FORMAT(dates_creation, '%d/%m/%Y à %Hh%imin%ss') FROM missions ORDER BY dates_creation DESC"
+        "SELECT mission_id,wording,instruction, DATE_FORMAT(date_creation, '%d/%m/%Y à %Hh%imin%ss') as date_creation FROM missions ORDER BY date_creation DESC"
     );
     $missions = [];
     while (($row = $statement->fetch())) {
         $mission = [
             'mission_id' => $row['mission_id'],
-            'dates_creation' => $row['dates_creation'],
+            'dates_creation' => $row['date_creation'],
             'wording' => $row['wording'],
             'instruction' => $row['instruction'],
         ];

@@ -4,8 +4,8 @@ require_once 'db/database.php';
 function getRealisation($id_membre) {
     $database = dbConnect();
     $statement = $database->query(
-        "SELECT m.wording, r.id_mission, m.instruction, DATE_FORMAT(r.date_realisation, '%d/%m/%Y à %Hh%imin%ss'), r.github_project,devcred
-        FROM realisation r,missions m,members me 
+        "SELECT m.wording, r.id_mission, m.instruction, DATE_FORMAT(r.date_realisation, '%d/%m/%Y à %Hh%imin%ss'), r.github_project,m.devcred
+        FROM realisations r,missions m,members me 
         WHERE r.id_membre = me.id AND r.id_membre = $id_membre
         and r.id_mission = m.mission_id  
         ORDER BY date_realisation DESC"
@@ -16,7 +16,7 @@ function getRealisation($id_membre) {
             'wording' => $row['wording'],
             'date_realisation' => $row['date_realisation'],
             'instruction' => $row['instruction'],
-            'identifier' => $row['id'],
+            'identifier' => $row['id_mission'],
             'github_project' => $row['github_project'],
             'devcred' => $row['devcred'],
            

@@ -1,13 +1,12 @@
 <?php 
 session_start();
-
 $files = glob('src/controllers/*.php');
 foreach ($files as $file) {
     require_once $file;
 }
-
-
-
+$_SESSION['count']=get_MembersCount();
+$_SESSION['members'] = get_members();
+$_SESSION['missions'] = get_missions();
 
 if(isset($_POST['submit'])){
 
@@ -26,17 +25,18 @@ elseif(isset($_POST['connexion'])){
     $mail=$_POST['mail'];
     $password=$_POST['password'];
     if(get_connexion($mail,$password) != -1){
+        $_SESSION['mail'] = $mail;
         $_SESSION['id'] = get_connexion($mail,$password);
+        $_SESSION['devcred']=get_DevCredById($_SESSION['id']);
+        $_SESSION['realisation'] = get_realisation($_SESSION['id']);
         include_once 'templates/admin/dash.php';
     }
     elseif(get_connexionAd($mail,$password)){
         $membersD=getAllRealisations();
-        $members=get_members();
-        $_SESSION['members'] = $members;
+        //$members=get_members();
         $_SESSION['membersD'] = $membersD;
         $_SESSION['id'] = 0;
         include_once 'templates/admin/admindash.php';
-
         //header('Location:templates/admin/admindash.php?membersD=' . urlencode($membersD) . '&members=' . urlencode($members));
 
     }

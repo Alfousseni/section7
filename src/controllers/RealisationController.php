@@ -18,3 +18,7 @@ function getAllRealisations(){
     //$membersD=serialize($membersD);
 return $membersD;
 }
+
+function get_Realisation($id_membre){
+    return getRealisation($id_membre);
+}

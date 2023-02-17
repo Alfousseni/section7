@@ -32,6 +32,13 @@ function get_member($id){
 return $member;
 }
 
+function get_DevCredById($member_id){
+    return getDevCredById($member_id);
+}
+function get_MembersCount(){
+    return getMembersCount();
+} 
+
 
 
 

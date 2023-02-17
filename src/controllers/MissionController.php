@@ -12,3 +12,8 @@ function add_missions($wording,$instruction,$devcred){
      addMission($new_values);
 
 }
+
+function get_missions(){
+    $missions=getMissions();
+return $missions;
+}
