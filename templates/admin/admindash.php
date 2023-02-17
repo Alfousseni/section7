@@ -116,7 +116,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
                 <div class="popup-inner">
                     <span class="close-btn" onclick="closePopup()">&times;</span>
                     <h2>Ajouter une mission</h2>
-                    <form action="../../index.php" method="POST">
+                    <form action="index.php" method="POST">
                         <label for="wording">Titre :</label>
                         <input type="text" id="wording" name="wording" required><br><br>
                         <label for="devcred">devcred :</label>

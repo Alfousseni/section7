@@ -272,7 +272,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
               <div class="activity">
               <div class="activity-item d-flex">
                   <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>    
-                  <div class="activite-label"><?=$realisations[0]['Recompenses']?></div>
+                  <div class="activite-label" style="word-break: break-all;"><?=$realisations[0]['Recompenses']?></div>
                 </div><!-- End activity item--> 
               </div>
 

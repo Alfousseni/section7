@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
    $tel=$_POST['tel'];
    $password=$_POST['password'];
    addmembers($email,$user_name,$github,$country,$adress,$tel,$password);
-   include_once 'templates/admin/login.php';
+   header('location:templates/admin/login.php');
 
 
 }
@@ -54,6 +54,9 @@ elseif(isset($_POST['ajouterMission'])){
     $lienGit=$_POST['github'];
     $idMission=$_POST['id_mission'];
     realisation($lienGit,$idMission);
+    $_SESSION['devcred']=get_DevCredById($_SESSION['id']);
+    $_SESSION['realisation'] = get_realisation($_SESSION['id']);
+    include_once 'templates/admin/dash.php';
     
 }
 
